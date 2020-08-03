@@ -13,10 +13,12 @@ object Dependencies {
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
     const val NAVIGATION_DFM = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.NAVIGATION}"
 
+    const val DAGGER = "com.google.dagger:dagger:${Versions.DAGGER}"
+    const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
+
     const val TEST_JUNIT = "junit:junit:${Versions.TEST_JUNIT}"
 
     const val ANDROID_TEST_JUNIT = "androidx.test.ext:junit:${Versions.ANDROID_TEST_JUNIT}"
-    const val ANDROID_TEST_ESPRESSO_CORE = "androidx.test.ext:junit:${Versions.ANDROID_TEST_JUNIT}"
     const val ANDROID_TEST_ANNOTATION = "androidx.annotation:annotation:${Versions.ANNOTATION}"
 
     const val MODULE_APP = ":app"

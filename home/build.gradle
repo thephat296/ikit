@@ -26,6 +26,5 @@ dependencies {
     implementation Dependencies.NAVIGATION_DFM
     testImplementation Dependencies.TEST_JUNIT
     testImplementation Dependencies.ANDROID_TEST_JUNIT
-    testImplementation Dependencies.ANDROID_TEST_ESPRESSO_CORE
     androidTestImplementation Dependencies.ANDROID_TEST_ANNOTATION
 }

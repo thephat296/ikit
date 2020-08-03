@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -35,7 +36,10 @@ dependencies {
     implementation Dependencies.NAVIGATION_FRAGMENT_KTX
     implementation Dependencies.NAVIGATION_UI
     implementation Dependencies.NAVIGATION_DFM
+    implementation Dependencies.NAVIGATION_DFM
+    implementation Dependencies.DAGGER
+    kapt Dependencies.DAGGER_COMPILER
+
     testImplementation Dependencies.TEST_JUNIT
     testImplementation Dependencies.ANDROID_TEST_JUNIT
-    testImplementation Dependencies.ANDROID_TEST_ESPRESSO_CORE
 }
