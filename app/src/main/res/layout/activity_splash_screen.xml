@@ -9,6 +9,7 @@
         android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:defaultNavHost="false" />
+        app:defaultNavHost="false"
+        app:navGraph="@navigation/navigation_splash_screen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
