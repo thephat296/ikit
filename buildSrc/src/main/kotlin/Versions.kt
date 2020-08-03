@@ -11,7 +11,7 @@ object Versions {
     const val NAVIGATION = "2.3.0"
     const val TEST_JUNIT = "4.12"
     const val ANDROID_TEST_JUNIT = "1.1.1"
-    const val ANDROID_TEST_ESPRESSO_CORE = "3.2.0"
     const val ANNOTATION = "1.1.0"
     const val DAGGER = "2.28.3"
+    const val MATERIAL = "1.1.0"
 }

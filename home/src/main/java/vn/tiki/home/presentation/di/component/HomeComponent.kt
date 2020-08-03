@@ -1,0 +1,31 @@
+package vn.tiki.home.presentation.di.component
+
+import android.app.Activity
+import dagger.BindsInstance
+import dagger.Component
+import vn.tiki.di.component.AppComponent
+import vn.tiki.di.scope.FeatureScope
+
+@Component(dependencies = [AppComponent::class])
+@FeatureScope
+interface HomeComponent {
+
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun activity(activity: Activity): Builder
+
+        fun appComponent(appComponent: AppComponent): Builder
+
+        fun build(): HomeComponent
+    }
+
+    companion object {
+        fun create(activity: Activity, appComponent: AppComponent): HomeComponent =
+            DaggerHomeComponent
+                .builder()
+                .activity(activity)
+                .appComponent(appComponent)
+                .build()
+    }
+}

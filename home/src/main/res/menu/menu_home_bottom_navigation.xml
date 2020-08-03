@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_vector_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/item_menu"
+        android:enabled="true"
+        android:icon="@drawable/ic_vector_menu"
+        android:title="@string/menu" />
+    <item
+        android:id="@+id/item_search"
+        android:enabled="true"
+        android:icon="@drawable/ic_vector_search"
+        android:title="@string/search" />
+    <item
+        android:id="@+id/item_notification"
+        android:enabled="true"
+        android:icon="@drawable/ic_vector_notification"
+        android:title="@string/notification" />
+    <item
+        android:id="@+id/item_personal"
+        android:enabled="true"
+        android:icon="@drawable/ic_vector_personal"
+        android:title="@string/personal" />
+</menu>

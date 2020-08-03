@@ -16,6 +16,8 @@ object Dependencies {
     const val DAGGER = "com.google.dagger:dagger:${Versions.DAGGER}"
     const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
 
+    const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
+
     const val TEST_JUNIT = "junit:junit:${Versions.TEST_JUNIT}"
 
     const val ANDROID_TEST_JUNIT = "androidx.test.ext:junit:${Versions.ANDROID_TEST_JUNIT}"

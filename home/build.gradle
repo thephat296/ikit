@@ -1,6 +1,7 @@
 apply plugin: "com.android.dynamic-feature"
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -24,6 +25,11 @@ dependencies {
     implementation Dependencies.KOTLIN_STDLIB
     implementation Dependencies.APPCOMPAT
     implementation Dependencies.NAVIGATION_DFM
+    implementation Dependencies.DAGGER
+    kapt Dependencies.DAGGER_COMPILER
+    implementation Dependencies.CONSTRAINT_LAYOUT
+    implementation Dependencies.MATERIAL
+
     testImplementation Dependencies.TEST_JUNIT
     testImplementation Dependencies.ANDROID_TEST_JUNIT
     androidTestImplementation Dependencies.ANDROID_TEST_ANNOTATION
