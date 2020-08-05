@@ -1,4 +1,4 @@
-package vn.tiki.home.presentation.viewmodel
+package vn.tiki.home.presentation.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import vn.tiki.coroutines.CoroutinesDispatcherProvider

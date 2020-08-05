@@ -1,4 +1,4 @@
-package vn.tiki.home.presentation.factory
+package vn.tiki.home.presentation.ui.factory
 
 import android.app.Activity
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.savedstate.SavedStateRegistryOwner
 import vn.tiki.coroutines.CoroutinesDispatcherProvider
 import vn.tiki.home.domain.usecase.GetBannersUseCase
 import vn.tiki.home.domain.usecase.GetQuickLinksUseCase
-import vn.tiki.home.presentation.viewmodel.HomeViewModel
+import vn.tiki.home.presentation.ui.viewmodel.HomeViewModel
 import javax.inject.Inject
 
 /**

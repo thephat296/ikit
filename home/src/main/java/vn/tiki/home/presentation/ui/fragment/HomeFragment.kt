@@ -3,9 +3,9 @@ package vn.tiki.home.presentation.ui.fragment
 import android.content.Context
 import androidx.fragment.app.viewModels
 import vn.tiki.home.R
-import vn.tiki.home.presentation.factory.HomeViewModelFactory
 import vn.tiki.home.presentation.ui.activity.HomeActivity
-import vn.tiki.home.presentation.viewmodel.HomeViewModel
+import vn.tiki.home.presentation.ui.factory.HomeViewModelFactory
+import vn.tiki.home.presentation.ui.viewmodel.HomeViewModel
 import vn.tiki.ui.fragment.BaseFragment
 import javax.inject.Inject
 
