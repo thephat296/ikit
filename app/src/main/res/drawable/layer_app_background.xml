@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:opacity="opaque">
+
+    <item android:drawable="@color/white" />
+
+    <item
+        android:id="@+id/layer_navigation_bar"
+        android:bottom="500dp"
+        android:left="-200dp"
+        android:right="-200dp"
+        android:top="-200dp">
+        <shape android:shape="oval">
+            <gradient
+                android:angle="0"
+                android:endColor="@color/bg_header_end"
+                android:startColor="@color/bg_header_start" />
+        </shape>
+    </item>
+
+</layer-list>
