@@ -6,6 +6,7 @@ import dagger.Component
 import vn.tiki.di.component.AppComponent
 import vn.tiki.di.scope.FeatureScope
 import vn.tiki.home.presentation.di.module.HomeModule
+import vn.tiki.home.presentation.ui.fragment.HomeFragment
 
 @Component(modules = [HomeModule::class], dependencies = [AppComponent::class])
 @FeatureScope
@@ -20,6 +21,8 @@ interface HomeComponent {
 
         fun build(): HomeComponent
     }
+
+    fun inject(fragment: HomeFragment)
 
     companion object {
         fun create(activity: Activity, appComponent: AppComponent): HomeComponent =
