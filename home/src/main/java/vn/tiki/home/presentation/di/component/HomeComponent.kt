@@ -5,8 +5,9 @@ import dagger.BindsInstance
 import dagger.Component
 import vn.tiki.di.component.AppComponent
 import vn.tiki.di.scope.FeatureScope
+import vn.tiki.home.presentation.di.module.HomeModule
 
-@Component(dependencies = [AppComponent::class])
+@Component(modules = [HomeModule::class], dependencies = [AppComponent::class])
 @FeatureScope
 interface HomeComponent {
 

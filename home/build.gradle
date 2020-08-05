@@ -45,6 +45,13 @@ dependencies {
     implementation Dependencies.LIFECYCLE_RUNTIME_KTX
     implementation Dependencies.LIFECYCLE_VIEWMODEL_KTX
 
+    implementation Dependencies.COROUTINES_CORE
+    implementation Dependencies.COROUTINES_ANDROID
+
+    implementation Dependencies.RETROFIT
+    implementation Dependencies.CONVERTER_GSON
+    implementation Dependencies.GSON
+
     testImplementation Dependencies.TEST_JUNIT
     testImplementation Dependencies.ANDROID_TEST_JUNIT
     androidTestImplementation Dependencies.ANDROID_TEST_ANNOTATION

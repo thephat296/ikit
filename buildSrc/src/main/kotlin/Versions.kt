@@ -15,4 +15,7 @@ object Versions {
     const val DAGGER = "2.28.3"
     const val MATERIAL = "1.1.0"
     const val LIFECYCLE = "2.2.0"
+    const val COROUTINES = "1.3.8-1.4.0-rc"
+    const val RETROFIT = "2.6.0"
+    const val GSON = "2.8.5"
 }
