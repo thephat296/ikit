@@ -2,7 +2,9 @@ package vn.tiki.home.data.repository
 
 import vn.tiki.home.data.api.HomeApiService
 import vn.tiki.home.data.model.BannerDataModel
+import vn.tiki.home.data.model.QuickLinkDataModel
 import vn.tiki.home.domain.model.BannerDomainModel
+import vn.tiki.home.domain.model.QuickLinkDomainModel
 import vn.tiki.home.domain.repository.HomeRepository
 import javax.inject.Inject
 
@@ -19,4 +21,10 @@ class HomeRepositoryImpl @Inject constructor(
             .getBanners()
             .data!!
             .map(BannerDataModel::toDomainModel)
+
+    override suspend fun getQuickLinks(): List<QuickLinkDomainModel> =
+        apiService
+            .getQuickLinks()
+            .data!!
+            .map(QuickLinkDataModel::toDomainModel)
 }
