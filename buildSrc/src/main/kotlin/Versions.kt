@@ -14,4 +14,5 @@ object Versions {
     const val ANNOTATION = "1.1.0"
     const val DAGGER = "2.28.3"
     const val MATERIAL = "1.1.0"
+    const val LIFECYCLE = "2.2.0"
 }

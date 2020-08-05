@@ -16,6 +16,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -29,6 +38,12 @@ dependencies {
     kapt Dependencies.DAGGER_COMPILER
     implementation Dependencies.CONSTRAINT_LAYOUT
     implementation Dependencies.MATERIAL
+
+    implementation Dependencies.LIFECYCLE_EXTENSIONS
+    implementation Dependencies.LIFECYCLE_COMMON_JAVA8
+    implementation Dependencies.LIFECYCLE_LIVEDATA_KTX
+    implementation Dependencies.LIFECYCLE_RUNTIME_KTX
+    implementation Dependencies.LIFECYCLE_VIEWMODEL_KTX
 
     testImplementation Dependencies.TEST_JUNIT
     testImplementation Dependencies.ANDROID_TEST_JUNIT
