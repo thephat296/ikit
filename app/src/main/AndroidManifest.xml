@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="vn.tiki">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".AndroidApplication"
@@ -10,6 +13,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="vn.tiki.appstartup.TimberInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="vn.tiki.appstartup.StethoInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
         <activity android:name=".ui.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
