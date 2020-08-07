@@ -37,6 +37,8 @@ object Dependencies {
     const val STETHO_OKHTTP3 = "com.facebook.stetho:stetho-okhttp3:${Versions.STETHO}"
     const val COIL = "io.coil-kt:coil:${Versions.COIL}"
 
+    const val RECYCLERVIEW = "androidx.recyclerview:recyclerview:${Versions.RECYCLERVIEW}"
+
     const val TEST_JUNIT = "junit:junit:${Versions.TEST_JUNIT}"
 
     const val ANDROID_TEST_JUNIT = "androidx.test.ext:junit:${Versions.ANDROID_TEST_JUNIT}"

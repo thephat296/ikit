@@ -22,4 +22,5 @@ object Versions {
     const val TIMBER = "4.7.1"
     const val STETHO = "1.5.1"
     const val COIL = "0.11.0"
+    const val RECYCLERVIEW = "1.2.0-alpha05"
 }

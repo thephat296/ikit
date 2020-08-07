@@ -43,6 +43,9 @@ dependencies {
 
     kapt Dependencies.DAGGER_COMPILER
 
+    implementation Dependencies.COIL
+    implementation Dependencies.RECYCLERVIEW
+
     testImplementation Dependencies.TEST_JUNIT
     testImplementation Dependencies.ANDROID_TEST_JUNIT
     androidTestImplementation Dependencies.ANDROID_TEST_ANNOTATION
