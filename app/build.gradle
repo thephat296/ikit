@@ -39,6 +39,13 @@ dependencies {
     implementation Dependencies.NAVIGATION_DFM
     implementation Dependencies.DAGGER
     kapt Dependencies.DAGGER_COMPILER
+    implementation Dependencies.STARTUP
+    implementation Dependencies.TIMBER
+    implementation Dependencies.STETHO
+    implementation Dependencies.STETHO_OKHTTP3
+    implementation Dependencies.RETROFIT
+    implementation Dependencies.CONVERTER_GSON
+    implementation Dependencies.GSON
 
     testImplementation Dependencies.TEST_JUNIT
     testImplementation Dependencies.ANDROID_TEST_JUNIT

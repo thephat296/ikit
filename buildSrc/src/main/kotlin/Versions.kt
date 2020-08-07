@@ -18,4 +18,8 @@ object Versions {
     const val COROUTINES = "1.3.8-1.4.0-rc"
     const val RETROFIT = "2.6.0"
     const val GSON = "2.8.5"
+    const val STARTUP = "1.0.0-alpha02"
+    const val TIMBER = "4.7.1"
+    const val STETHO = "1.5.1"
+    const val COIL = "0.11.0"
 }

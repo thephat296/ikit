@@ -31,6 +31,12 @@ object Dependencies {
     const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
     const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
 
+    const val STARTUP = "androidx.startup:startup-runtime:${Versions.STARTUP}"
+    const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
+    const val STETHO = "com.facebook.stetho:stetho:${Versions.STETHO}"
+    const val STETHO_OKHTTP3 = "com.facebook.stetho:stetho-okhttp3:${Versions.STETHO}"
+    const val COIL = "io.coil-kt:coil:${Versions.COIL}"
+
     const val TEST_JUNIT = "junit:junit:${Versions.TEST_JUNIT}"
 
     const val ANDROID_TEST_JUNIT = "androidx.test.ext:junit:${Versions.ANDROID_TEST_JUNIT}"
