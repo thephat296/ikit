@@ -3,14 +3,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+def cfg = rootProject.ext.configuration
+
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion cfg.compileVersion
+    buildToolsVersion cfg.buildToolsVersion
 
     defaultConfig {
-        applicationId "vn.tiki"
-        minSdkVersion 21
-        targetSdkVersion 29
+        applicationId cfg.applicationId
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -28,24 +30,23 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation Dependencies.KOTLIN_STDLIB
-    implementation Dependencies.CORE_KTX
-    implementation Dependencies.APPCOMPAT
-    implementation Dependencies.CONSTRAINT_LAYOUT
-    implementation Dependencies.FRAGMENT_KTX
-    implementation Dependencies.NAVIGATION_FRAGMENT_KTX
-    implementation Dependencies.NAVIGATION_UI
-    implementation Dependencies.NAVIGATION_DFM
-    implementation Dependencies.NAVIGATION_DFM
-    implementation Dependencies.DAGGER
+    api Dependencies.KOTLIN_STDLIB
+    api Dependencies.CORE_KTX
+    api Dependencies.APPCOMPAT
+    api Dependencies.CONSTRAINT_LAYOUT
+    api Dependencies.FRAGMENT_KTX
+    api Dependencies.NAVIGATION_FRAGMENT_KTX
+    api Dependencies.NAVIGATION_UI
+    api Dependencies.NAVIGATION_DFM
+    api Dependencies.TIMBER
+    api Dependencies.STETHO
+    api Dependencies.RETROFIT
+    api Dependencies.CONVERTER_GSON
+    api Dependencies.GSON
+    api Dependencies.DAGGER
     kapt Dependencies.DAGGER_COMPILER
-    implementation Dependencies.STARTUP
-    implementation Dependencies.TIMBER
-    implementation Dependencies.STETHO
     implementation Dependencies.STETHO_OKHTTP3
-    implementation Dependencies.RETROFIT
-    implementation Dependencies.CONVERTER_GSON
-    implementation Dependencies.GSON
+    implementation Dependencies.STARTUP
 
     testImplementation Dependencies.TEST_JUNIT
     testImplementation Dependencies.ANDROID_TEST_JUNIT

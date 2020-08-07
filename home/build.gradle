@@ -3,15 +3,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+def cfg = rootProject.ext.configuration
+
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion cfg.compileVersion
+    buildToolsVersion cfg.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,13 +30,6 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(Dependencies.MODULE_APP)
-    implementation Dependencies.CORE_KTX
-    implementation Dependencies.KOTLIN_STDLIB
-    implementation Dependencies.APPCOMPAT
-    implementation Dependencies.NAVIGATION_DFM
-    implementation Dependencies.DAGGER
-    kapt Dependencies.DAGGER_COMPILER
-    implementation Dependencies.CONSTRAINT_LAYOUT
     implementation Dependencies.MATERIAL
 
     implementation Dependencies.LIFECYCLE_EXTENSIONS
@@ -48,9 +41,7 @@ dependencies {
     implementation Dependencies.COROUTINES_CORE
     implementation Dependencies.COROUTINES_ANDROID
 
-    implementation Dependencies.RETROFIT
-    implementation Dependencies.CONVERTER_GSON
-    implementation Dependencies.GSON
+    kapt Dependencies.DAGGER_COMPILER
 
     testImplementation Dependencies.TEST_JUNIT
     testImplementation Dependencies.ANDROID_TEST_JUNIT
