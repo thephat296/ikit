@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_medium"
         android:background="@drawable/bg_btn_gray_border"
+        android:clickable="false"
         android:drawableStart="@drawable/ic_vector_search"
         android:drawablePadding="@dimen/spacing_tiny"
         android:hint="@string/home_search_hint"
@@ -17,6 +19,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHome"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>
