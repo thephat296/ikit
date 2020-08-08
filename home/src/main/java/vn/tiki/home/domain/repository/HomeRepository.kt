@@ -1,6 +1,7 @@
 package vn.tiki.home.domain.repository
 
 import vn.tiki.home.domain.model.BannerDomainModel
+import vn.tiki.home.domain.model.FlashDealDomainModel
 import vn.tiki.home.domain.model.QuickLinkDomainModel
 
 /**
@@ -11,4 +12,6 @@ interface HomeRepository {
     suspend fun getBanners(): List<BannerDomainModel>
 
     suspend fun getQuickLinks(): List<List<QuickLinkDomainModel>>
+
+    suspend fun getFlashDeals(): List<FlashDealDomainModel>
 }

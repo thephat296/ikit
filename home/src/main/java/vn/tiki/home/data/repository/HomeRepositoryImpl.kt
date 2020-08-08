@@ -2,8 +2,10 @@ package vn.tiki.home.data.repository
 
 import vn.tiki.home.data.api.HomeApiService
 import vn.tiki.home.data.model.BannerDataModel
+import vn.tiki.home.data.model.FlashDealDataModel
 import vn.tiki.home.data.model.QuickLinkDataModel
 import vn.tiki.home.domain.model.BannerDomainModel
+import vn.tiki.home.domain.model.FlashDealDomainModel
 import vn.tiki.home.domain.model.QuickLinkDomainModel
 import vn.tiki.home.domain.repository.HomeRepository
 import javax.inject.Inject
@@ -29,4 +31,10 @@ class HomeRepositoryImpl @Inject constructor(
             .map {
                 it.map(QuickLinkDataModel::toDomainModel)
             }
+
+    override suspend fun getFlashDeals(): List<FlashDealDomainModel> =
+        apiService
+            .getFlashDeals()
+            .data!!
+            .map(FlashDealDataModel::toDomainModel)
 }
