@@ -40,10 +40,10 @@ dependencies {
 
     implementation Dependencies.COROUTINES_CORE
     implementation Dependencies.COROUTINES_ANDROID
+    implementation Dependencies.SWIPE_REFRESH_LAYOUT
 
     kapt Dependencies.DAGGER_COMPILER
 
-    implementation Dependencies.COIL
     implementation Dependencies.RECYCLERVIEW
 
     testImplementation Dependencies.TEST_JUNIT

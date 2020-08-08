@@ -39,6 +39,7 @@ dependencies {
     api Dependencies.NAVIGATION_UI
     api Dependencies.NAVIGATION_DFM
     api Dependencies.TIMBER
+    api Dependencies.FRESCO
     api Dependencies.STETHO
     api Dependencies.RETROFIT
     api Dependencies.CONVERTER_GSON

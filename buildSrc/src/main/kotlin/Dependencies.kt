@@ -35,9 +35,10 @@ object Dependencies {
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
     const val STETHO = "com.facebook.stetho:stetho:${Versions.STETHO}"
     const val STETHO_OKHTTP3 = "com.facebook.stetho:stetho-okhttp3:${Versions.STETHO}"
-    const val COIL = "io.coil-kt:coil:${Versions.COIL}"
+    const val FRESCO = "com.facebook.fresco:fresco:${Versions.FRESCO}"
 
     const val RECYCLERVIEW = "androidx.recyclerview:recyclerview:${Versions.RECYCLERVIEW}"
+    const val SWIPE_REFRESH_LAYOUT = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_REFRESH_LAYOUT}"
 
     const val TEST_JUNIT = "junit:junit:${Versions.TEST_JUNIT}"
 

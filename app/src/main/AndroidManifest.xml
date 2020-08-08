@@ -25,6 +25,9 @@
             <meta-data
                 android:name="vn.tiki.appstartup.StethoInitializer"
                 android:value="androidx.startup" />
+            <meta-data
+                android:name="vn.tiki.appstartup.FrescoInitializer"
+                android:value="androidx.startup" />
         </provider>
 
         <activity android:name=".ui.activity.SplashScreenActivity">
