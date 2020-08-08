@@ -47,4 +47,5 @@ object Dependencies {
 
     const val MODULE_APP = ":app"
     const val MODULE_DATA = ":data"
+    const val MODULE_DOMAIN = ":domain"
 }

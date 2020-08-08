@@ -1,7 +1,7 @@
 package vn.tiki.home.domain.usecase
 
+import vn.tiki.domain.model.Result
 import vn.tiki.home.domain.model.BannerDomainModel
-import vn.tiki.home.domain.model.Result
 import vn.tiki.home.domain.repository.HomeRepository
 import javax.inject.Inject
 

@@ -6,9 +6,9 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import timber.log.Timber
 import vn.tiki.coroutines.CoroutinesDispatcherProvider
+import vn.tiki.domain.model.Result
 import vn.tiki.extensions.exhaustive
 import vn.tiki.home.domain.model.BannerDomainModel
-import vn.tiki.home.domain.model.Result
 import vn.tiki.home.domain.usecase.GetBannersUseCase
 import vn.tiki.home.domain.usecase.GetQuickLinksUseCase
 import vn.tiki.home.presentation.ui.model.BannersItem
