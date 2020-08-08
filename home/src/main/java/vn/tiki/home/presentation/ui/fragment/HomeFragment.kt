@@ -37,9 +37,18 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter = HomeAdapter(homeViewHolderFactory)
         rvHome.adapter = adapter
-        homeViewModel.homeItems.observe(viewLifecycleOwner, Observer(adapter::submitList))
+        getHomeItems()
 
-        homeViewModel.getBanners()
+        refreshLayout.setOnRefreshListener {
+            getHomeItems()
+        }
+    }
+
+    private fun getHomeItems() {
+        homeViewModel.getHomeItems().observe(viewLifecycleOwner, Observer {
+            refreshLayout.isRefreshing = false
+            adapter.submitList(it)
+        })
     }
 
 }

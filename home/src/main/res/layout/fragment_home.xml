@@ -13,13 +13,20 @@
         android:clickable="false"
         android:drawableStart="@drawable/ic_vector_search"
         android:drawablePadding="@dimen/spacing_tiny"
+        android:focusable="false"
         android:hint="@string/home_search_hint"
         android:padding="@dimen/spacing_normal" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHome"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>
