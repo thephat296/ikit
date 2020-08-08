@@ -11,11 +11,11 @@ import vn.tiki.home.data.model.QuickLinkDataModel
 
 interface HomeApiService {
     @GET(PATH_GET_BANNER)
-    suspend fun getBanners(): DataResponse<List<BannerDataModel>>
+    suspend fun getBanners(): vn.tiki.data.api.response.DataResponse<List<BannerDataModel>>
 
     @GET(PATH_GET_QUICK_LINK)
-    suspend fun getQuickLinks(): DataResponse<List<List<QuickLinkDataModel>>>
+    suspend fun getQuickLinks(): vn.tiki.data.api.response.DataResponse<List<List<QuickLinkDataModel>>>
 
     @GET(PATH_GET_FLASH_DEAL)
-    suspend fun getFlashDeals(): DataResponse<List<FlashDealDataModel>>
+    suspend fun getFlashDeals(): vn.tiki.data.api.response.DataResponse<List<FlashDealDataModel>>
 }

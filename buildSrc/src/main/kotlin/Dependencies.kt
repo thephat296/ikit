@@ -46,4 +46,5 @@ object Dependencies {
     const val ANDROID_TEST_ANNOTATION = "androidx.annotation:annotation:${Versions.ANNOTATION}"
 
     const val MODULE_APP = ":app"
+    const val MODULE_DATA = ":data"
 }

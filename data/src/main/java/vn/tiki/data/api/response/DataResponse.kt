@@ -1,4 +1,4 @@
-package vn.tiki.home.data.api
+package vn.tiki.data.api.response
 
 import com.google.gson.annotations.SerializedName
 
