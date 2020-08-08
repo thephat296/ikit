@@ -5,12 +5,6 @@ package vn.tiki.home.domain.model
  */
 
 data class FlashDealDomainModel(
-    val status: String,
-    val url: String,
-    val tags: String,
     val discountPercent: Float,
-    val specialPrice: Long,
-    val specialFromDate: Long,
-    val fromDate: String,
-    val specialToDate: Long
+    val product: ProductDomainModel
 )
