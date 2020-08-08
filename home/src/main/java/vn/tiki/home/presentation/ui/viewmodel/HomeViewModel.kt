@@ -14,6 +14,7 @@ import vn.tiki.home.domain.usecase.GetQuickLinksUseCase
 import vn.tiki.home.presentation.ui.model.BannersItem
 import vn.tiki.home.presentation.ui.model.HomeItem
 import vn.tiki.home.presentation.ui.model.LoadingItem
+import vn.tiki.home.presentation.ui.type.HomeItemViewType
 
 /**
  * Created by phatvt2 on 8/5/20
@@ -28,7 +29,7 @@ class HomeViewModel(
     fun getHomeItems(): LiveData<List<HomeItem>> = liveData(viewModelScope.coroutineContext + dispatcherProvider.io) {
         val resultItems = mutableListOf<HomeItem>()
 
-        val bannersLoadingItem = LoadingItem()
+        val bannersLoadingItem = LoadingItem(HomeItemViewType.BANNERS)
         resultItems.add(bannersLoadingItem)
         emit(resultItems.toList())
         val bannersResult = getBannersUseCase()
