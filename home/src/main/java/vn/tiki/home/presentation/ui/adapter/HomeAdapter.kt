@@ -1,5 +1,6 @@
 package vn.tiki.home.presentation.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -17,11 +18,12 @@ class HomeAdapter(
 ) : ListAdapter<HomeItem, HomeViewHolder<HomeItem>>(Companion) {
     companion object : DiffUtil.ItemCallback<HomeItem>() {
         override fun areItemsTheSame(oldItem: HomeItem, newItem: HomeItem): Boolean {
-            return false //todo
+            return oldItem.viewType == newItem.viewType
         }
 
+        @SuppressLint("DiffUtilEquals")
         override fun areContentsTheSame(oldItem: HomeItem, newItem: HomeItem): Boolean {
-            return false //todo
+            return oldItem == newItem
         }
     }
 
