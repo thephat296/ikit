@@ -12,7 +12,7 @@ import javax.inject.Inject
 class GetQuickLinksUseCase @Inject constructor(
     private val homeRepository: HomeRepository
 ) {
-    suspend operator fun invoke(): Result<List<QuickLinkDomainModel>> =
+    suspend operator fun invoke(): Result<List<List<QuickLinkDomainModel>>> =
         try {
             Result.Success(homeRepository.getQuickLinks())
         } catch (e: Exception) {

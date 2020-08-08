@@ -10,5 +10,5 @@ import vn.tiki.home.domain.model.QuickLinkDomainModel
 interface HomeRepository {
     suspend fun getBanners(): List<BannerDomainModel>
 
-    suspend fun getQuickLinks(): List<QuickLinkDomainModel>
+    suspend fun getQuickLinks(): List<List<QuickLinkDomainModel>>
 }

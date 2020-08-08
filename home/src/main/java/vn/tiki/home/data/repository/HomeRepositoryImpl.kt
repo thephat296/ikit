@@ -22,9 +22,11 @@ class HomeRepositoryImpl @Inject constructor(
             .data!!
             .map(BannerDataModel::toDomainModel)
 
-    override suspend fun getQuickLinks(): List<QuickLinkDomainModel> =
+    override suspend fun getQuickLinks(): List<List<QuickLinkDomainModel>> =
         apiService
             .getQuickLinks()
             .data!!
-            .map(QuickLinkDataModel::toDomainModel)
+            .map {
+                it.map(QuickLinkDataModel::toDomainModel)
+            }
 }

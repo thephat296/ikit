@@ -13,5 +13,5 @@ interface HomeApiService {
     suspend fun getBanners(): DataResponse<List<BannerDataModel>>
 
     @GET(PATH_GET_QUICK_LINK)
-    suspend fun getQuickLinks(): DataResponse<List<QuickLinkDataModel>>
+    suspend fun getQuickLinks(): DataResponse<List<List<QuickLinkDataModel>>>
 }
