@@ -20,6 +20,7 @@ class BannersViewHolder(override val containerView: View) :
 
     override fun bindView(item: HomeItem) {
         containerView.progressBar.setShow(item is LoadingItem)
+        containerView.rvBanner.setShow(item is BannersItem)
         (item as? BannersItem)?.let {
             bindBannersView(item.banners)
         }

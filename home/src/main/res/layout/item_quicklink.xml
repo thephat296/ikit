@@ -3,6 +3,7 @@
     android:layout_width="@dimen/quick_link_item_width"
     android:layout_height="wrap_content"
     android:layout_marginEnd="@dimen/spacing_small"
+    android:layout_marginBottom="@dimen/spacing_small"
     android:orientation="vertical">
 
     <com.facebook.drawee.view.SimpleDraweeView

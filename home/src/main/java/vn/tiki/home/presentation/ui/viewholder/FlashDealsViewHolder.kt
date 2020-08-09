@@ -22,6 +22,7 @@ class FlashDealsViewHolder(override val containerView: View) :
 
     override fun bindView(item: HomeItem) {
         containerView.progressBar.setShow(item is LoadingItem)
+        containerView.rvFlashDeal.setShow(item is FlashDealsItem)
         (item as? FlashDealsItem)?.let {
             bindFlashDealsView(it.flashDeals)
         }

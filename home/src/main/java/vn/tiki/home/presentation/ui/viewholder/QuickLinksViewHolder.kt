@@ -21,6 +21,7 @@ class QuickLinksViewHolder(override val containerView: View) :
 
     override fun bindView(item: HomeItem) {
         containerView.progressBar.setShow(item is LoadingItem)
+        containerView.rvQuickLink.setShow(item is QuickLinksItem)
         (item as? QuickLinksItem)?.let {
             bindQuickLinksView(it.quickLinks, it.spanCount)
         }

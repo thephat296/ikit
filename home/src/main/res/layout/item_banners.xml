@@ -8,13 +8,14 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
         android:indeterminateTint="@color/bright_blue"
         android:indeterminateTintMode="src_atop"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/rvBanner"
-        app:layout_constraintEnd_toEndOf="@+id/rvBanner"
-        app:layout_constraintStart_toStartOf="@+id/rvBanner"
-        app:layout_constraintTop_toTopOf="@+id/rvBanner" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBanner"
