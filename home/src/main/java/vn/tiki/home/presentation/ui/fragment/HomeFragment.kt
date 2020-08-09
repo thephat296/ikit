@@ -38,6 +38,7 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter = HomeAdapter(homeViewHolderFactory)
         rvHome.adapter = adapter
+        rvHome.setHasFixedSize(true)
         homeViewModel.homeItems.safeObserve(this, Observer {
             refreshLayout.isRefreshing = false
             adapter.submitList(it)

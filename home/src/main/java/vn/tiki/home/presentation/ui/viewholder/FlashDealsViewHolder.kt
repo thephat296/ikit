@@ -31,8 +31,11 @@ class FlashDealsViewHolder(override val containerView: View) :
     }
 
     private fun bindFlashDealsView(items: List<FlashDealItem>) {
-        containerView.rvFlashDeal.adapter = FlashDealAdapter().apply {
-            submitList(items)
+        with(containerView.rvFlashDeal) {
+            setHasFixedSize(true)
+            adapter = FlashDealAdapter().apply {
+                submitList(items)
+            }
         }
     }
 }

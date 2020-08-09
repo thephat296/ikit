@@ -28,6 +28,7 @@ class QuickLinksViewHolder(override val containerView: View) :
 
     private fun bindQuickLinksView(quickLinks: List<List<QuickLinkItem>>) {
         with(containerView.rvQuickLink) {
+            setHasFixedSize(true)
             layoutManager =
                 GridLayoutManager(containerView.context, quickLinks.size, GridLayoutManager.HORIZONTAL, false)
             adapter = QuickLinkAdapter().apply {

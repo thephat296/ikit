@@ -26,8 +26,11 @@ class BannersViewHolder(override val containerView: View) :
     }
 
     private fun bindBannersView(items: List<BannerItem>) {
-        containerView.rvBanner.adapter = BannerAdapter().apply {
-            submitList(items)
+        with(containerView.rvBanner) {
+            setHasFixedSize(true)
+            adapter = BannerAdapter().apply {
+                submitList(items)
+            }
         }
     }
 }
