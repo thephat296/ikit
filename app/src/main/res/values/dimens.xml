@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="spacing_tiny_s">2dp</dimen>
     <dimen name="spacing_tiny">4dp</dimen>
     <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_normal">12dp</dimen>
     <dimen name="spacing_medium">16dp</dimen>
 
+    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_normal">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="text_size_xlarge">18sp</dimen>
+
     <!-- quick link -->
     <dimen name="quick_link_icon_size">45dp</dimen>
     <dimen name="quick_link_item_width">80dp</dimen>
+
+    <dimen name="flash_deal_item_width">90dp</dimen>
+    <dimen name="flash_deal_item_height">100dp</dimen>
 
 </resources>

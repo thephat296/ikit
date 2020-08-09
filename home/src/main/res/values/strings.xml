@@ -8,4 +8,7 @@
     <string name="not_available">Chưa hỗ trợ</string>
     <string name="home_search_hint">Bạn tìm gì hôm nay</string>
     <string name="title_home">Home</string>
+
+    <string name="see_more">Xem thêm</string>
+    <string name="flash_deal_current">Giá Sốc Hôm Nay</string>
 </resources>
