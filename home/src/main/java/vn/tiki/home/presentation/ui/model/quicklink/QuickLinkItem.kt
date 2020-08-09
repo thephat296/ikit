@@ -10,9 +10,6 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class QuickLinkItem(
     val title: String,
-    val content: String,
     val url: String,
-    val authentication: Boolean,
-    val webUrl: String,
     val imageUrl: String
 ) : Parcelable

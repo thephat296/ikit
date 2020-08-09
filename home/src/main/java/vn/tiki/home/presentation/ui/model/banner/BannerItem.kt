@@ -10,11 +10,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class BannerItem(
     val id: Long,
-    val title: String,
-    val content: String,
     val url: String,
-    val imageUrl: String,
-    val thumbnailUrl: String,
     val mobileUrl: String,
     val ratio: Float
 ) : Parcelable

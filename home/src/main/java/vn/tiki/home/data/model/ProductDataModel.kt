@@ -9,11 +9,17 @@ import vn.tiki.home.domain.model.ProductDomainModel
 
 data class ProductDataModel(
     @SerializedName("id") val id: Long,
-    @SerializedName("name") val name: String,
-    @SerializedName("url_path") val urlPath: String,
+    @SerializedName("name") val name: String?,
+    @SerializedName("url_path") val urlPath: String?,
     @SerializedName("price") val price: Long,
     @SerializedName("discount") val discount: Long,
-    @SerializedName("thumbnail_url") val thumbnailUrl: String
+    @SerializedName("thumbnail_url") val thumbnailUrl: String?
 ) {
-    fun toDomainModel() = ProductDomainModel(id, name, urlPath, price, discount, thumbnailUrl)
+    @Throws(IllegalArgumentException::class)
+    fun toDomainModel(): ProductDomainModel {
+        requireNotNull(name)
+        requireNotNull(urlPath)
+        requireNotNull(thumbnailUrl)
+        return ProductDomainModel(id, name, urlPath, price, discount, thumbnailUrl)
+    }
 }

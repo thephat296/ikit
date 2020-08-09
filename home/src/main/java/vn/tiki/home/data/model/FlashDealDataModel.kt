@@ -9,8 +9,12 @@ import vn.tiki.home.domain.model.FlashDealDomainModel
 
 data class FlashDealDataModel(
     @SerializedName("discount_percent") val discountPercent: Float,
-    @SerializedName("product") val product: ProductDataModel
+    @SerializedName("product") val product: ProductDataModel?
 ) {
-    fun toDomainModel() = FlashDealDomainModel(discountPercent, product.toDomainModel())
+    @Throws(IllegalArgumentException::class)
+    fun toDomainModel(): FlashDealDomainModel {
+        requireNotNull(product)
+        return FlashDealDomainModel(discountPercent, product.toDomainModel())
+    }
 }
 
