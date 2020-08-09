@@ -32,7 +32,7 @@ class BannerAdapter : ListAdapter<BannerItem, HomeViewHolder<BannerItem>>(Compan
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder<BannerItem>, position: Int) =
-        holder.bindView(getItem(position % super.getItemCount()))
+        holder.bindView(getItem(position))
 
     private class BannerViewHolder(override val containerView: View) :
         HomeViewHolder<BannerItem>(containerView),
@@ -41,6 +41,4 @@ class BannerAdapter : ListAdapter<BannerItem, HomeViewHolder<BannerItem>>(Compan
             containerView.imgBanner.setImageURI(item.mobileUrl)
         }
     }
-
-    override fun getItemCount() = Int.MAX_VALUE
 }
