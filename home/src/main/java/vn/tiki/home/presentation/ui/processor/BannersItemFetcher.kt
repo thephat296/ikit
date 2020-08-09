@@ -6,9 +6,9 @@ import vn.tiki.domain.model.Result
 import vn.tiki.extensions.exhaustive
 import vn.tiki.home.domain.model.BannerDomainModel
 import vn.tiki.home.domain.usecase.GetBannersUseCase
-import vn.tiki.home.presentation.ui.model.BannersItem
 import vn.tiki.home.presentation.ui.model.HomeItem
 import vn.tiki.home.presentation.ui.model.LoadingItem
+import vn.tiki.home.presentation.ui.model.banner.BannersItem
 import vn.tiki.home.presentation.ui.type.HomeItemViewType
 import javax.inject.Inject
 

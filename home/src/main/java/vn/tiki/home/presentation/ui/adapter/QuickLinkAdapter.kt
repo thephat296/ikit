@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_quicklink.view.*
 import vn.tiki.home.R
-import vn.tiki.home.presentation.ui.model.QuickLinkItem
+import vn.tiki.home.presentation.ui.model.quicklink.QuickLinkItem
 import vn.tiki.home.presentation.ui.viewholder.HomeViewHolder
 
 /**

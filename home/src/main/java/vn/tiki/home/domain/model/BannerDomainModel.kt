@@ -1,6 +1,6 @@
 package vn.tiki.home.domain.model
 
-import vn.tiki.home.presentation.ui.model.BannerItem
+import vn.tiki.home.presentation.ui.model.banner.BannerItem
 
 /**
  * Created by phatvt2 on 8/5/20

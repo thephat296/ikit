@@ -1,4 +1,4 @@
-package vn.tiki.home.presentation.ui.model
+package vn.tiki.home.presentation.ui.model.quicklink
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

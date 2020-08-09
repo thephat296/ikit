@@ -8,7 +8,7 @@ import vn.tiki.home.domain.model.QuickLinkDomainModel
 import vn.tiki.home.domain.usecase.GetQuickLinksUseCase
 import vn.tiki.home.presentation.ui.model.HomeItem
 import vn.tiki.home.presentation.ui.model.LoadingItem
-import vn.tiki.home.presentation.ui.model.QuickLinksItem
+import vn.tiki.home.presentation.ui.model.quicklink.QuickLinksItem
 import vn.tiki.home.presentation.ui.type.HomeItemViewType
 import javax.inject.Inject
 

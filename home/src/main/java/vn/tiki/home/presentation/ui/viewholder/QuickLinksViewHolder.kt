@@ -8,8 +8,8 @@ import vn.tiki.extensions.setShow
 import vn.tiki.home.presentation.ui.adapter.QuickLinkAdapter
 import vn.tiki.home.presentation.ui.model.HomeItem
 import vn.tiki.home.presentation.ui.model.LoadingItem
-import vn.tiki.home.presentation.ui.model.QuickLinkItem
-import vn.tiki.home.presentation.ui.model.QuickLinksItem
+import vn.tiki.home.presentation.ui.model.quicklink.QuickLinkItem
+import vn.tiki.home.presentation.ui.model.quicklink.QuickLinksItem
 
 /**
  * Created by phatvt2 on 8/8/20

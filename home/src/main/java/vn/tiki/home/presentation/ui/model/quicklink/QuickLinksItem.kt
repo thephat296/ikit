@@ -1,7 +1,8 @@
-package vn.tiki.home.presentation.ui.model
+package vn.tiki.home.presentation.ui.model.quicklink
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import vn.tiki.home.presentation.ui.model.HomeItem
 import vn.tiki.home.presentation.ui.type.HomeItemViewType
 
 /**

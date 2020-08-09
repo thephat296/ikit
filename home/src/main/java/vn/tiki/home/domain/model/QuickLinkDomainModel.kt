@@ -1,6 +1,6 @@
 package vn.tiki.home.domain.model
 
-import vn.tiki.home.presentation.ui.model.QuickLinkItem
+import vn.tiki.home.presentation.ui.model.quicklink.QuickLinkItem
 
 /**
  * Created by phatvt2 on 8/5/20

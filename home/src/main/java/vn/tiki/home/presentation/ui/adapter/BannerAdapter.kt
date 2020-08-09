@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_banner.view.*
 import vn.tiki.home.R
-import vn.tiki.home.presentation.ui.model.BannerItem
+import vn.tiki.home.presentation.ui.model.banner.BannerItem
 import vn.tiki.home.presentation.ui.viewholder.HomeViewHolder
 
 /**
