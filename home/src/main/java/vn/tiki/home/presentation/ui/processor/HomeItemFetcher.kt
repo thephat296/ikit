@@ -8,7 +8,7 @@ import vn.tiki.home.presentation.ui.model.HomeItem
  */
 
 interface HomeItemFetcher {
-    val source: LiveData<List<HomeItem>>
+    val source: LiveData<HomeItem>
 
     suspend fun fetch()
 }

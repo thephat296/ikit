@@ -1,6 +1,7 @@
 package vn.tiki.home.presentation.ui.processor
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import timber.log.Timber
 import vn.tiki.domain.model.Result
 import vn.tiki.extensions.exhaustive
@@ -20,24 +21,24 @@ class FlashDealsItemFetcher @Inject constructor(
     private val getFlashDealsUseCase: GetFlashDealsUseCase
 ) : HomeItemFetcher {
 
-    private val _source = HomeItemLiveData()
+    private val _source = MutableLiveData<HomeItem>()
 
-    override val source: LiveData<List<HomeItem>>
+    override val source: LiveData<HomeItem>
         get() = _source
 
     override suspend fun fetch() {
-        val loadingItem = LoadingItem(HomeItemViewType.FLASH_DEALS)
-        _source.set(loadingItem)
-        val flashDealsResult = getFlashDealsUseCase()
-        _source.remove(loadingItem)
-
-        when (flashDealsResult) {
+        _source.postValue(LoadingItem(HomeItemViewType.FLASH_DEALS))
+        when (val result = getFlashDealsUseCase()) {
             is Result.Success -> {
-                val flashDealItems = flashDealsResult.data.map(FlashDealDomainModel::toFlashDealItem)
-                val flashDealsItem = FlashDealsItem(flashDealItems)
-                _source.add(flashDealsItem)
+                val flashDealsItem = FlashDealsItem(
+                    result.data.map(FlashDealDomainModel::toFlashDealItem)
+                )
+                _source.postValue(flashDealsItem)
             }
-            is Result.Error -> Timber.d(flashDealsResult.exception)
+            is Result.Error -> {
+                Timber.d(result.exception)
+                _source.postValue(null)
+            }
         }.exhaustive
     }
 }

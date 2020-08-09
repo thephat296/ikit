@@ -25,7 +25,7 @@ class HomeViewModel(
     private val flashDealsItemFetcher: FlashDealsItemFetcher
 ) : ViewModel() {
 
-    private val sources = arrayListOf<LiveData<List<HomeItem>>>()
+    private val sources = arrayListOf<LiveData<HomeItem>>()
     private val _homeItems = MediatorLiveData<List<HomeItem>>()
     val homeItems: LiveData<List<HomeItem>> = _homeItems
 
@@ -36,7 +36,7 @@ class HomeViewModel(
         fetchHomeItems()
     }
 
-    private fun addItemSource(source: LiveData<List<HomeItem>>) {
+    private fun addItemSource(source: LiveData<HomeItem>) {
         sources.add(source)
         _homeItems.addSource(source) {
             updateItems()
@@ -46,7 +46,7 @@ class HomeViewModel(
     private fun updateItems() {
         val items = arrayListOf<HomeItem>()
         for (source in sources) {
-            source.value?.let(items::addAll)
+            source.value?.let(items::add)
             if (items.lastOrNull() is LoadingItem) {
                 break
             }

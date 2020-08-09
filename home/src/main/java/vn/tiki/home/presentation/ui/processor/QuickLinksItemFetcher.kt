@@ -1,6 +1,7 @@
 package vn.tiki.home.presentation.ui.processor
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import timber.log.Timber
 import vn.tiki.domain.model.Result
 import vn.tiki.extensions.exhaustive
@@ -20,26 +21,27 @@ class QuickLinksItemFetcher @Inject constructor(
     private val getQuickLinksUseCase: GetQuickLinksUseCase
 ) : HomeItemFetcher {
 
-    private val _source = HomeItemLiveData()
+    private val _source = MutableLiveData<HomeItem>()
 
-    override val source: LiveData<List<HomeItem>>
+    override val source: LiveData<HomeItem>
         get() = _source
 
     override suspend fun fetch() {
         val loadingItem = LoadingItem(HomeItemViewType.QUICK_LINKS)
-        _source.set(loadingItem)
-        val quickLinksResult = getQuickLinksUseCase()
-        _source.remove(loadingItem)
-        when (quickLinksResult) {
+        _source.postValue(loadingItem)
+        when (val result = getQuickLinksUseCase()) {
             is Result.Success -> {
-                val quickLinkItems = quickLinksResult.data.map {
-                    it.map(QuickLinkDomainModel::toQuickLinkItem)
-                }
-                val quickLinksItem = QuickLinksItem(quickLinkItems)
-                _source.add(quickLinksItem)
+                val quickLinksItem = QuickLinksItem(
+                    result.data.map {
+                        it.map(QuickLinkDomainModel::toQuickLinkItem)
+                    }
+                )
+                _source.postValue(quickLinksItem)
             }
-            is Result.Error -> Timber.d(quickLinksResult.exception)
+            is Result.Error -> {
+                Timber.d(result.exception)
+                _source.postValue(null)
+            }
         }.exhaustive
     }
-
 }
