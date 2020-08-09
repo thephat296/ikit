@@ -51,9 +51,7 @@ class HomeViewModel(
                 break
             }
         }
-        if (items.isNotEmpty()) {
-            _homeItems.value = items
-        }
+        _homeItems.value = items
     }
 
     fun fetchHomeItems() {

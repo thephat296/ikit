@@ -16,6 +16,13 @@ class BaseNetworkModule {
     @Provides
     fun provideBaseOkHttpclient(): OkHttpClient =
         OkHttpClient.Builder()
+            .connectTimeout(CONNECTION_TIME_OUT, java.util.concurrent.TimeUnit.SECONDS)
+            .readTimeout(READ_TIME_OUT, java.util.concurrent.TimeUnit.SECONDS)
             .addNetworkInterceptor(StethoInterceptor())
             .build()
+
+    companion object {
+        const val CONNECTION_TIME_OUT = 10L
+        const val READ_TIME_OUT = 10L
+    }
 }
