@@ -1,20 +1,18 @@
 package vn.tiki.home.presentation.ui.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
-import timber.log.Timber
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import vn.tiki.coroutines.CoroutinesDispatcherProvider
-import vn.tiki.domain.model.Result
-import vn.tiki.extensions.exhaustive
-import vn.tiki.home.domain.model.BannerDomainModel
-import vn.tiki.home.domain.usecase.GetBannersUseCase
-import vn.tiki.home.domain.usecase.GetQuickLinksUseCase
-import vn.tiki.home.presentation.ui.model.BannersItem
 import vn.tiki.home.presentation.ui.model.HomeItem
 import vn.tiki.home.presentation.ui.model.LoadingItem
-import vn.tiki.home.presentation.ui.type.HomeItemViewType
+import vn.tiki.home.presentation.ui.processor.BannersItemFetcher
+import vn.tiki.home.presentation.ui.processor.FlashDealsItemFetcher
+import vn.tiki.home.presentation.ui.processor.QuickLinksItemFetcher
 
 /**
  * Created by phatvt2 on 8/5/20
@@ -22,26 +20,55 @@ import vn.tiki.home.presentation.ui.type.HomeItemViewType
 
 class HomeViewModel(
     private val dispatcherProvider: CoroutinesDispatcherProvider,
-    private val getBannersUseCase: GetBannersUseCase,
-    private val getQuickLinksUseCase: GetQuickLinksUseCase
+    private val bannersItemFetcher: BannersItemFetcher,
+    private val quickLinksItemFetcher: QuickLinksItemFetcher,
+    private val flashDealsItemFetcher: FlashDealsItemFetcher
 ) : ViewModel() {
 
-    fun getHomeItems(): LiveData<List<HomeItem>> = liveData(viewModelScope.coroutineContext + dispatcherProvider.io) {
-        val resultItems = mutableListOf<HomeItem>()
+    private val sources = arrayListOf<LiveData<List<HomeItem>>>()
+    private val _homeItems = MediatorLiveData<List<HomeItem>>()
+    val homeItems: LiveData<List<HomeItem>> = _homeItems
 
-        val bannersLoadingItem = LoadingItem(HomeItemViewType.BANNERS)
-        resultItems.add(bannersLoadingItem)
-        emit(resultItems.toList())
-        val bannersResult = getBannersUseCase()
-        resultItems.remove(bannersLoadingItem)
-        when (bannersResult) {
-            is Result.Success -> {
-                val bannerItems = bannersResult.data.map(BannerDomainModel::toBannerItem)
-                val bannersItem = BannersItem(bannerItems)
-                resultItems.add(bannersItem)
-                emit(resultItems.toList())
+    init {
+        addItemSource(bannersItemFetcher.source)
+        addItemSource(quickLinksItemFetcher.source)
+        addItemSource(flashDealsItemFetcher.source)
+        fetchHomeItems()
+    }
+
+    private fun addItemSource(source: LiveData<List<HomeItem>>) {
+        sources.add(source)
+        _homeItems.addSource(source) {
+            updateItems()
+        }
+    }
+
+    private fun updateItems() {
+        val items = arrayListOf<HomeItem>()
+        for (source in sources) {
+            source.value?.let(items::addAll)
+            if (items.lastOrNull() is LoadingItem) {
+                break
             }
-            is Result.Error -> Timber.d(bannersResult.exception)
-        }.exhaustive
+        }
+        if (items.isNotEmpty()) {
+            _homeItems.value = items
+        }
+    }
+
+    fun fetchHomeItems() {
+        viewModelScope.launch {
+            val bannersDeferred = async(dispatcherProvider.io) {
+                bannersItemFetcher.fetch()
+            }
+            val quickLinksDeferred = async(dispatcherProvider.io) {
+                quickLinksItemFetcher.fetch()
+            }
+            bannersDeferred.await()
+            quickLinksDeferred.await()
+            withContext(dispatcherProvider.io) {
+                flashDealsItemFetcher.fetch()
+            }
+        }
     }
 }

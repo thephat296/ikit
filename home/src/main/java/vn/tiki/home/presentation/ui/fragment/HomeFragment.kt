@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_home.*
+import vn.tiki.extensions.safeObserve
 import vn.tiki.home.R
 import vn.tiki.home.presentation.ui.activity.HomeActivity
 import vn.tiki.home.presentation.ui.adapter.HomeAdapter
@@ -37,18 +38,14 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter = HomeAdapter(homeViewHolderFactory)
         rvHome.adapter = adapter
-        getHomeItems()
-
-        refreshLayout.setOnRefreshListener {
-            getHomeItems()
-        }
-    }
-
-    private fun getHomeItems() {
-        homeViewModel.getHomeItems().observe(viewLifecycleOwner, Observer {
+        homeViewModel.homeItems.safeObserve(this, Observer {
             refreshLayout.isRefreshing = false
             adapter.submitList(it)
         })
+
+        refreshLayout.setOnRefreshListener {
+            homeViewModel.fetchHomeItems()
+        }
     }
 
 }
