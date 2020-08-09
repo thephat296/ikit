@@ -22,17 +22,17 @@ class QuickLinksViewHolder(override val containerView: View) :
     override fun bindView(item: HomeItem) {
         containerView.progressBar.setShow(item is LoadingItem)
         (item as? QuickLinksItem)?.let {
-            bindQuickLinksView(it.quickLinks)
+            bindQuickLinksView(it.quickLinks, it.spanCount)
         }
     }
 
-    private fun bindQuickLinksView(quickLinks: List<List<QuickLinkItem>>) {
+    private fun bindQuickLinksView(quickLinks: List<QuickLinkItem>, spanCount: Int) {
         with(containerView.rvQuickLink) {
             setHasFixedSize(true)
             layoutManager =
-                GridLayoutManager(containerView.context, quickLinks.size, GridLayoutManager.HORIZONTAL, false)
+                GridLayoutManager(containerView.context, spanCount, GridLayoutManager.HORIZONTAL, false)
             adapter = QuickLinkAdapter().apply {
-                submitList(quickLinks.flatten())
+                submitList(quickLinks)
             }
         }
     }

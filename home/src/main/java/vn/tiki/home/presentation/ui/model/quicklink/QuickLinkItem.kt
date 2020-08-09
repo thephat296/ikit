@@ -12,4 +12,8 @@ data class QuickLinkItem(
     val title: String,
     val url: String,
     val imageUrl: String
-) : Parcelable
+) : Parcelable {
+    companion object {
+        val EMPTY = QuickLinkItem("", "", "")
+    }
+}

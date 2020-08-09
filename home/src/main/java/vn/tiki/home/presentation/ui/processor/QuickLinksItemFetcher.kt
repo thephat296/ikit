@@ -9,6 +9,7 @@ import vn.tiki.home.domain.model.QuickLinkDomainModel
 import vn.tiki.home.domain.usecase.GetQuickLinksUseCase
 import vn.tiki.home.presentation.ui.model.HomeItem
 import vn.tiki.home.presentation.ui.model.LoadingItem
+import vn.tiki.home.presentation.ui.model.quicklink.QuickLinkItem
 import vn.tiki.home.presentation.ui.model.quicklink.QuickLinksItem
 import vn.tiki.home.presentation.ui.type.HomeItemViewType
 import javax.inject.Inject
@@ -31,11 +32,10 @@ class QuickLinksItemFetcher @Inject constructor(
         _source.postValue(loadingItem)
         when (val result = getQuickLinksUseCase()) {
             is Result.Success -> {
-                val quickLinksItem = QuickLinksItem(
-                    result.data.map {
-                        it.map(QuickLinkDomainModel::toQuickLinkItem)
-                    }
-                )
+                val quickLinkItems = result.data.map {
+                    it.map(QuickLinkDomainModel::toQuickLinkItem)
+                }
+                val quickLinksItem = QuickLinksItem(zipItem(quickLinkItems), quickLinkItems.size)
                 _source.postValue(quickLinksItem)
             }
             is Result.Error -> {
@@ -43,5 +43,17 @@ class QuickLinksItemFetcher @Inject constructor(
                 _source.postValue(null)
             }
         }.exhaustive
+    }
+
+    private fun zipItem(items: List<List<QuickLinkItem>>): List<QuickLinkItem> {
+        val maxSize = items.map { it.size }.max() ?: return emptyList()
+        val result = arrayListOf<QuickLinkItem>()
+        for (i in 0 until maxSize) {
+            items.forEach {
+                val item = it.getOrNull(i) ?: QuickLinkItem.EMPTY
+                result.add(item)
+            }
+        }
+        return result
     }
 }

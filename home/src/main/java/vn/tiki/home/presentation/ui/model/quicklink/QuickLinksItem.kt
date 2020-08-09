@@ -11,7 +11,8 @@ import vn.tiki.home.presentation.ui.type.HomeItemViewType
 
 @Parcelize
 data class QuickLinksItem(
-    val quickLinks: List<List<QuickLinkItem>>
+    val quickLinks: List<QuickLinkItem>,
+    val spanCount: Int
 ) : HomeItem, Parcelable {
     override val viewType: Int
         get() = HomeItemViewType.QUICK_LINKS
